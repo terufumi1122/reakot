@@ -1,0 +1,33 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile-frontend
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    tty: true      
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile-backend
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8080:8080"
+      - "5050:5050"
+  db:
+    image: mysql:8.0.20
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/mysql_init:/docker-entrypoint-initdb.d
+      - ./db/mysql_data:/var/lib/mysql
+      - ./db/mysql_conf/:/etc/mysql/conf.d
+    environment:
+      MYSQL_DATABASE: docker_db
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
