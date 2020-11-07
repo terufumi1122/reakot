@@ -25,7 +25,7 @@ services:
   db:
     image: mysql:8.0.20
     ports:
-      - "3306:3306"
+      - "13306:3306"
     volumes:
       - ./db/mysql_init:/docker-entrypoint-initdb.d
       - ./db/mysql_data:/var/lib/mysql
@@ -35,3 +35,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: docker
       MYSQL_PASSWORD: docker
+    security_opt:
+      - seccomp:unconfined
+    extra_hosts:
+      - "localhost:172.25.0.1"
