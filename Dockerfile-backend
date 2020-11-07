@@ -1,0 +1,9 @@
+FROM openjdk:8-jdk-alpine
+
+WORKDIR /app
+
+RUN curl https://start.spring.io/starter.tgz -d language=kotlin -d type=gradle-project -d bootVersion=2.3.5 -d packageName=com.example.reakot -d name=ReaKot -d dependencies=web,devtools,mysql,data-jpa | tar zxvf -
+RUN chmod -R 777 .
+RUN /app/gradlew build
+RUN mv /app/build/libs/*.jar /app/app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/work/app.jar"]
