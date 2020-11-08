@@ -25,9 +25,9 @@ data class Parent(
     @Column(name = "insert_datetime", nullable = false)
     val insertDatetime: LocalDateTime = LocalDateTime.now(),
     @Column(name = "update_datetime", nullable = false)
-    val updateDatetime: LocalDateTime = LocalDateTime.now(),
+    var updateDatetime: LocalDateTime = LocalDateTime.now(),
     @Column(name = "update_count", nullable = false)
     val updateCount: Long = 0,
     @Column(name = "delete_flg", nullable = false)
-    val deleteFlg: Int = 0
+    var deleteFlg: Int = 0
 ) : Serializable

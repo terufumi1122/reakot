@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 class ParentsController(val service: ParentsService) {
 
     @GetMapping
-    fun findAll() = service.findAll()
+    fun findAll() = service.findAllWithoutDeleted()
 
     @PostMapping
     fun addParent(@RequestBody parent: Parent) = service.save(parent)
