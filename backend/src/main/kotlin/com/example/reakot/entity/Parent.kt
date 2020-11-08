@@ -1,16 +1,15 @@
 package com.example.reakot.entity
 
 import java.io.Serializable
+import java.time.LocalDateTime
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 @Table(name = "parents")
 data class Parent(
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false)
     val id: Long,
     @Column(name = "email", nullable = false)
@@ -24,9 +23,9 @@ data class Parent(
     @Column(name = "birthday", nullable = true)
     val birthday: Date,
     @Column(name = "insert_datetime", nullable = false)
-    val insertDatetime: Date,
+    val insertDatetime: LocalDateTime = LocalDateTime.now(),
     @Column(name = "update_datetime", nullable = false)
-    val updateDatetime: Date,
+    val updateDatetime: LocalDateTime = LocalDateTime.now(),
     @Column(name = "update_count", nullable = false)
     val updateCount: Long,
     @Column(name = "delete_flg", nullable = false)
