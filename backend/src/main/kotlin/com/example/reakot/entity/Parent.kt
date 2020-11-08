@@ -9,7 +9,7 @@ import javax.persistence.*
 @Table(name = "parents")
 data class Parent(
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     val id: Long,
     @Column(name = "email", nullable = false)
