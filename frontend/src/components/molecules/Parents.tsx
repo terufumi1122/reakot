@@ -31,16 +31,13 @@ export default function Parents() {
 
   return (
     <>
-      <div className="parents">
-        <h1 className="parents-title">Parents Info</h1>
-        <ul>
-          {parents && parents.map((p) => (
-            <li key={p.id}>
-              {p.id}: {p.name}: {p.email}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul>
+        {parents && parents.map((p) => (
+          <li key={p.id}>
+            {p.id}: {p.name}: {p.email}
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
