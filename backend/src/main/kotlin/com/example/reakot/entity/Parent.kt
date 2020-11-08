@@ -9,7 +9,7 @@ import javax.persistence.*
 @Table(name = "parents")
 data class Parent(
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     val id: Long,
     @Column(name = "email", nullable = false)
@@ -27,7 +27,7 @@ data class Parent(
     @Column(name = "update_datetime", nullable = false)
     val updateDatetime: LocalDateTime = LocalDateTime.now(),
     @Column(name = "update_count", nullable = false)
-    val updateCount: Long,
+    val updateCount: Long = 0,
     @Column(name = "delete_flg", nullable = false)
-    val deleteFlg: Int
+    val deleteFlg: Int = 0
 ) : Serializable

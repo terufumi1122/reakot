@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.util.*
 
 @Service
 @Transactional
@@ -19,8 +20,9 @@ class ParentsService {
 
     // Read
     fun findAll(): MutableIterable<Parent> = repository.findAll()
-    fun findById(id: Int): Parent? = repository.findById(id)
+    fun findById(id: Long): Optional<Parent> = repository.findById(id)
+    fun findAllByOrderByInsertDatetimeDesc(): Iterable<Parent> = repository.findAllByOrderByInsertDatetimeDesc()
 
     // Delete
-    fun delete(id: Int) = repository.delete(id)
+    fun delete(id: Long) = repository.deleteById(id)
 }
