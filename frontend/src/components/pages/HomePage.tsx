@@ -1,10 +1,13 @@
 import React from "react";
+import SignUp from "../molecules/SignUp";
 import GenericTemplate from "../templates/GenericTemplate";
 
 const HomePage: React.FC = () => {
   return (
     <GenericTemplate title="トップページ">
-      <>トップページ内容</>
+      <>
+        <SignUp />
+      </>
     </GenericTemplate>
   )
 };

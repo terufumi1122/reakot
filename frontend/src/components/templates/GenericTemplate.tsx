@@ -138,7 +138,7 @@ const Copyright = () => {
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" to="/">
-        管理画面
+        WelcomeBaby
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -192,7 +192,7 @@ const GenericTemplate: React.FC<GenericTemplateProps> = ({
               noWrap
               className={classes.title}
             >
-              管理画面
+              WelcomeBaby
             </Typography>
           </Toolbar>
         </AppBar>
@@ -224,6 +224,14 @@ const GenericTemplate: React.FC<GenericTemplateProps> = ({
                   <ShoppingCartIcon />
                 </ListItemIcon>
                 <ListItemText primary="親のページ" />
+              </ListItem>
+            </Link>
+            <Link to="/babies" className={classes.link}>
+              <ListItem button>
+                <ListItemIcon>
+                  <ShoppingCartIcon />
+                </ListItemIcon>
+                <ListItemText primary="赤ちゃんのページ" />
               </ListItem>
             </Link>
           </List>

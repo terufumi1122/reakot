@@ -14,7 +14,7 @@ data class Baby(
     val id: Long,
     @Column(name = "parent_id", nullable = false)
     val parent_id: Long,
-    @Column(name = "email", nullable = false)
+    @Column(name = "name", nullable = false)
     val name: String,
     @Column(name = "gender", nullable = false)
     val gender: Int,
