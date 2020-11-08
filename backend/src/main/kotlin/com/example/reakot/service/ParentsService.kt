@@ -5,9 +5,7 @@ import com.example.reakot.repository.ParentsRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.sql.Timestamp
 import java.time.LocalDateTime
-import java.util.*
 
 @Service
 @Transactional
@@ -20,12 +18,11 @@ class ParentsService {
 
     // Read
     fun findAll(): MutableIterable<Parent> = repository.findAll()
-    fun findAllWithoutDeleted(): List<Parent> = repository.findAll().filter { it.deleteFlg == 0 }
-    fun findById(id: Long): Optional<Parent> = repository.findById(id)
+    fun findAllWithoutDeleted(): List<Parent> = repository.findAll().filter { it.deleteFlg == 0 } //論理削除対応
+    fun findById(id: Long): Parent = repository.getOne(id)
     fun findAllByOrderByInsertDatetimeDesc(): Iterable<Parent> = repository.findAllByOrderByInsertDatetimeDesc()
 
     // Delete
-//    fun delete(id: Long) = repository.deleteById(id)
     fun delete(id: Long) {
         val target: Parent = repository.getOne(id).apply {
             deleteFlg = 1

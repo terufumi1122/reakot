@@ -5,7 +5,7 @@ import com.example.reakot.service.ParentsService
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/parents")
+@RequestMapping("/api/parents")
 class ParentsController(val service: ParentsService) {
 
     @GetMapping
