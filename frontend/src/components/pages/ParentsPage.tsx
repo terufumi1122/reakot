@@ -1,6 +1,6 @@
 import React from 'react';
 import GenericTemplate from '../templates/GenericTemplate';
-import Parents from '../molecules/Parents'
+import Parents from '../organisms/Parents'
 
 function ParentsPage() {
   return (
