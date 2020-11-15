@@ -5,11 +5,11 @@ import Table from '../molecules/Table';
 const ENDPOINT = 'http://localhost:8080/api/parents';
 
 const columns = [
-  {title: 'メールアドレス', field: 'email'},
   {title: '親の名前', field: 'name'},
+  {title: 'メールアドレス', field: 'email'},
   {title: 'パスワード', field: 'password'},
   {title: '性別', field: 'gender'},
-  {title: '誕生日', field: 'birthday'},
+  {title: '誕生日', field: 'birthday', type: 'date'},
 ]
 
 interface Parent {
@@ -23,12 +23,12 @@ interface Parent {
 
 const Parents: FC = () => {
   const [parents, setParents] = useState([{
-    id: "",
+    id: 0,
     email: "",
     name: "",
     password: "",
-    gender: "",
-    birthday: "",
+    gender: 0,
+    birthday: Date,
   }]);
 
   const createParent = async (newData: any) => {

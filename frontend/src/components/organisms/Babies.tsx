@@ -7,7 +7,7 @@ const ENDPOINT = 'http://localhost:8080/api/babies';
 const columns = [
   {title: '赤ちゃんの名前', field: 'name'},
   {title: '性別', field: 'gender'},
-  {title: '誕生日', field: 'birthday'},
+  {title: '誕生日', field: 'birthday', type: 'date'},
 ]
 
 interface Baby {
@@ -19,10 +19,10 @@ interface Baby {
 
 const Babies: FC = () => {
   const [babies, setBabies] = useState([{
-    id: "",
+    id: 0,
     name: "",
-    gender: "",
-    birthday: "",
+    gender: 0,
+    birthday: Date,
   }]);
 
   const createBaby = async (newData: any) => {
