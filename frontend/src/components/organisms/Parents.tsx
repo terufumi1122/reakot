@@ -5,7 +5,6 @@ import Table from '../molecules/Table';
 const ENDPOINT = 'http://localhost:8080/api/parents';
 
 const columns = [
-  {title: 'id', field: 'id'},
   {title: 'メールアドレス', field: 'email'},
   {title: '親の名前', field: 'name'},
   {title: 'パスワード', field: 'password'},

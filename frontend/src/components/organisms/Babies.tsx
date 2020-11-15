@@ -5,7 +5,6 @@ import Table from '../molecules/Table';
 const ENDPOINT = 'http://localhost:8080/api/babies';
 
 const columns = [
-  {title: 'id', field: 'id'},
   {title: '赤ちゃんの名前', field: 'name'},
   {title: '性別', field: 'gender'},
   {title: '誕生日', field: 'birthday'},
