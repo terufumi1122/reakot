@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import BabiesPage from "./components/pages/BabiesPage"
 import ParentsPage from "./components/pages/ParentsPage"
 import HomePage from "./components/pages/HomePage"
 
-function App() {
+const App: FC = () => {
   return (
     <Router>
       <Switch>

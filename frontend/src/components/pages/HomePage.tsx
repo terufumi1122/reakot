@@ -1,12 +1,12 @@
-import React from "react";
-import SignUp from "../molecules/SignUp";
+import React, { FC } from "react";
+import PostForm from "../molecules/PostForm";
 import GenericTemplate from "../templates/GenericTemplate";
 
-const HomePage: React.FC = () => {
+const HomePage: FC = () => {
   return (
-    <GenericTemplate title="トップページ">
+    <GenericTemplate title="Welcome Baby">
       <>
-        <SignUp />
+        <PostForm/>
       </>
     </GenericTemplate>
   )

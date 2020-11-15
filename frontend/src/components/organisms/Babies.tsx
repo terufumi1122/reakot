@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import axios from 'axios';
 import Table from '../molecules/Table';
 
@@ -18,7 +18,7 @@ interface Baby {
   birthday: Date
 }
 
-export default function Babies() {
+const Babies: FC = () => {
   const [babies, setBabies] = useState([{
     id: "",
     name: "",
@@ -62,3 +62,5 @@ export default function Babies() {
     </>
   );
 }
+
+export default Babies;

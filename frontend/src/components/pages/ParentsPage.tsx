@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import GenericTemplate from '../templates/GenericTemplate';
 import Parents from '../organisms/Parents'
 
-function ParentsPage() {
+const ParentsPage: FC = () => {
   return (
     <GenericTemplate title="Parents Info">
       <Parents />

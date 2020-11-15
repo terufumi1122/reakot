@@ -1,9 +1,5 @@
-import React from 'react';
+import React, { FC } from 'react';
 import MaterialTable from 'material-table';
-import EditIcon from '@material-ui/icons/Edit';
-import axios from 'axios';
-
-const ENDPOINT = 'http://localhost:8080/api/parents';
 
 interface Prop {
   columns: any[],
@@ -13,7 +9,7 @@ interface Prop {
   rowDeleteHandler: (oldData: any) => void,
 } 
 
-const Table = ({ 
+const Table: FC<Prop> = ({ 
   columns,
   data,
   rowAddHandler,
@@ -37,4 +33,4 @@ const Table = ({
   )
 }
 
-export default Table
+export default Table;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import clsx from "clsx";
 import { createMuiTheme } from "@material-ui/core/styles";
 import * as colors from "@material-ui/core/colors";
@@ -151,10 +151,10 @@ export interface GenericTemplateProps {
   title: string;
 }
 
-const GenericTemplate: React.FC<GenericTemplateProps> = ({
+const GenericTemplate: FC<GenericTemplateProps> = ({
   children,
   title,
-}) => {
+}: GenericTemplateProps) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import axios from 'axios';
 import Table from '../molecules/Table';
-import PostForm from '../molecules/PostForm';
 
 const ENDPOINT = 'http://localhost:8080/api/parents';
 
@@ -23,7 +22,7 @@ interface Parent {
   birthday: Date
 }
 
-export default function Parents() {
+const Parents: FC = () => {
   const [parents, setParents] = useState([{
     id: "",
     email: "",
@@ -66,7 +65,8 @@ export default function Parents() {
         rowUpdateHandler={updateParent}
         rowDeleteHandler={deleteParent}
          />
-      <PostForm></PostForm>
     </>
   );
 }
+
+export default Parents;

@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import GenericTemplate from '../templates/GenericTemplate';
 import Babies from '../organisms/Babies'
-import PostForm from '../molecules/PostForm';
 
-function BabiesPage() {
+const BabiesPage: FC = () => {
   return (
     <GenericTemplate title="Babies Info">
       <Babies />
