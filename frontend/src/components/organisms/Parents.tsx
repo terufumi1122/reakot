@@ -14,6 +14,15 @@ const columns = [
   {title: '誕生日', field: 'birthday'},
 ]
 
+interface Parent {
+  id: number
+  email: string
+  name: string
+  password: string
+  gender: number
+  birthday: Date
+}
+
 export default function Parents() {
   const [parents, setParents] = useState([{
     id: "",
@@ -22,25 +31,39 @@ export default function Parents() {
     password: "",
     gender: "",
     birthday: "",
-    // insertDatetime: "",
-    // updateDatetime: "",
-    // updateCount: "",
-    // deleteFlg: "",
   }]);
 
-  // ページ読み込み時に親一覧を取得する
+  const createParent = async (newData: any) => {
+    axios.post(ENDPOINT, newData as Parent);
+  }
+  const updateParent = async (newData: any, oldData: any) => {
+    const id: number = (oldData as Parent).id;
+    axios.put(`${ENDPOINT}/${id}`, newData as Parent);
+  }
+  const deleteParent = async (oldData: any) => {
+    const id: number = (oldData as Parent).id;
+    axios.delete(`${ENDPOINT}/${id}`);
+  }
+
+  const fetchData = async () => {
+    const result = await axios(ENDPOINT);
+    setParents(result.data);
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(ENDPOINT);
-      setParents(result.data);
-    };
     fetchData();
   }, []);
 
   return (
     <>
+      <Table
+        columns={columns}
+        data={parents}
+        rowAddHandler={createParent}
+        rowUpdateHandler={updateParent}
+        rowDeleteHandler={deleteParent}
+         />
       <PostForm></PostForm>
-      <Table columns={columns} data={parents} />
     </>
   );
 }
