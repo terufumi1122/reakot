@@ -27,15 +27,18 @@ export default function Babies() {
   }]);
 
   const createBaby = async (newData: any) => {
-    axios.post(ENDPOINT, newData as Baby);
+    await axios.post(ENDPOINT, newData as Baby);
+    await fetchData();
   }
   const updateBaby = async (newData: any, oldData: any) => {
     const id: number = (oldData as Baby).id;
-    axios.put(`${ENDPOINT}/${id}`, newData as Baby);
+    await axios.put(`${ENDPOINT}/${id}`, newData as Baby);
+    await fetchData();
   }
   const deleteBaby = async (oldData: any) => {
     const id: number = (oldData as Baby).id;
-    axios.delete(`${ENDPOINT}/${id}`);
+    await axios.delete(`${ENDPOINT}/${id}`);
+    await fetchData();
   }
 
   const fetchData = async () => {

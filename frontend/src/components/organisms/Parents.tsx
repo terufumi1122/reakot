@@ -34,15 +34,18 @@ export default function Parents() {
   }]);
 
   const createParent = async (newData: any) => {
-    axios.post(ENDPOINT, newData as Parent);
+    await axios.post(ENDPOINT, newData as Parent);
+    await fetchData();
   }
   const updateParent = async (newData: any, oldData: any) => {
     const id: number = (oldData as Parent).id;
-    axios.put(`${ENDPOINT}/${id}`, newData as Parent);
+    await axios.put(`${ENDPOINT}/${id}`, newData as Parent);
+    await fetchData();
   }
   const deleteParent = async (oldData: any) => {
     const id: number = (oldData as Parent).id;
-    axios.delete(`${ENDPOINT}/${id}`);
+    await axios.delete(`${ENDPOINT}/${id}`);
+    await fetchData();
   }
 
   const fetchData = async () => {
