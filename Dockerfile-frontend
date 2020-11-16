@@ -1,0 +1,11 @@
+FROM node
+EXPOSE 3000
+
+WORKDIR /app/
+# COPY package.json /app
+
+RUN yarn global add create-react-app
+
+RUN create-react-app --template typescript .
+
+RUN chmod -R 777 .

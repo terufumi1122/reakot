@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: &dbURL jdbc:mysql://localhost:13306/docker_db
+    username: &dbUser docker
+    password: &dbPassword docker
