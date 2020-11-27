@@ -1,8 +1,8 @@
 package com.example.reakot.entity
 
 import java.io.Serializable
+import java.time.LocalDate
 import java.time.LocalDateTime
-import java.util.*
 import javax.persistence.*
 
 @Entity
@@ -21,7 +21,7 @@ data class Parent(
     @Column(name = "gender", nullable = false)
     val gender: Int,
     @Column(name = "birthday", nullable = true)
-    val birthday: Date,
+    val birthday: LocalDate,
     @Column(name = "insert_datetime", nullable = false)
     val insertDatetime: LocalDateTime = LocalDateTime.now(),
     @Column(name = "update_datetime", nullable = false)
